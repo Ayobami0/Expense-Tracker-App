@@ -35,9 +35,27 @@ class MyHomePage extends StatelessWidget {
       ),
       body: Column(children: <Widget>[
         SizedBox(
-          width: double.infinity,
           child: Card(child: Text('Chart')),
         ),
+        Card(
+            child: Container(
+          padding: EdgeInsets.all(10),
+          child: Column(
+            children: [
+              TextField(
+                  decoration: InputDecoration(labelText: "Title")),
+              TextField(
+                  decoration: InputDecoration(labelText: "Amount")),
+              TextButton(
+                onPressed: () {},
+                child: Text(
+                  "Add Transaction",
+                  style: TextStyle(color: Colors.purple),
+                ),
+              ),
+            ],
+          ),
+        )),
         Column(
             mainAxisAlignment: MainAxisAlignment.start,
             children: transactions.map((tx) {
@@ -59,23 +77,6 @@ class MyHomePage extends StatelessWidget {
                         color: Colors.purple,
                       ),
                     )),
-                Card(
-                    child: Container(
-                  padding: EdgeInsets.all(10),
-                  child: Column(
-                    children: [
-                      TextField(decoration: InputDecoration(labelText: "Title")),
-                      TextField(decoration: InputDecoration(labelText: "Amount")),
-                      TextButton(
-                        onPressed: () {},
-                        child: Text(
-                          "Add Transaction",
-                          style: TextStyle(color: Colors.purple),  
-                        ),
-                      ),
-                    ],
-                  ),
-                )),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
