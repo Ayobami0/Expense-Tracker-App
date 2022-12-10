@@ -1,5 +1,7 @@
 // ignore_for_file: prefer_const_constructors, use_key_in_widget_constructors
 
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 
 import 'package:intl/intl.dart';
@@ -27,6 +29,12 @@ class MyHomePage extends StatelessWidget {
         id: 'a1', title: 'Supplies', amount: 39.99, date: DateTime.now())
   ];
 
+  // late String titleInput;
+  // late String amountInput;
+
+  final titleController = TextEditingController();
+  final amountController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -41,13 +49,25 @@ class MyHomePage extends StatelessWidget {
             child: Container(
           padding: EdgeInsets.all(10),
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.end,
             children: [
               TextField(
+                  // onChanged: (value) {
+                  //     titleInput = value;
+                  //   },
+                  controller: titleController,
                   decoration: InputDecoration(labelText: "Title")),
               TextField(
+                  // onChanged: (value) {
+                  //     amountInput = value;
+                  //   },
+                  controller: amountController,
                   decoration: InputDecoration(labelText: "Amount")),
               TextButton(
-                onPressed: () {},
+                onPressed: () {
+                    print(titleController.text);
+                    print(amountController.text);
+                  },
                 child: Text(
                   "Add Transaction",
                   style: TextStyle(color: Colors.purple),
