@@ -2,8 +2,6 @@
 
 import 'package:flutter/material.dart';
 
-import './widgets/transaction_list.dart';
-import './widgets/user_transactions.dart';
 
 void main() {
   runApp(const MyApp());
@@ -29,7 +27,6 @@ class MyHomePage extends StatelessWidget {
         SizedBox(
           child: Card(child: Text('Chart')),
         ),
-        TransactionList(),
       ]),
     );
   }

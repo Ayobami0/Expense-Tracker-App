@@ -3,39 +3,30 @@ import 'package:intl/intl.dart';
 
 import '../models/transaction.dart';
 
-class TransactionList extends StatefulWidget {
-  const TransactionList({super.key});
+class TransactionList extends StatelessWidget {
 
-  @override
-  State<TransactionList> createState() => _TransactionListState();
-}
+  List<Transaction> userTransactions = [];
 
-class _TransactionListState extends State<TransactionList> {
-  final List<Transaction> _userTransactions = [
-    Transaction(
-        id: 'a1', title: 'New Shoes', amount: 69.99, date: DateTime.now()),
-    Transaction(
-        id: 'a1', title: 'Supplies', amount: 39.99, date: DateTime.now())
-  ];
+  TransactionList({required this.userTransactions});
 
   @override
   Widget build(BuildContext context) {
     return Column(
         mainAxisAlignment: MainAxisAlignment.start,
-        children: _userTransactions.map((tx) {
+        children: userTransactions.map((tx) {
           return Card(
               child: Row(children: <Widget>[
             Container(
-                margin: EdgeInsets.symmetric(vertical: 10, horizontal: 15),
+                margin: const EdgeInsets.symmetric(vertical: 10, horizontal: 15),
                 decoration: BoxDecoration(
                     border: Border.all(
                   color: Colors.purple,
                   width: 2,
                 )),
-                padding: EdgeInsets.all(10),
+                padding: const EdgeInsets.all(10),
                 child: Text(
                   '\$${tx.amount.toString()}',
-                  style: TextStyle(
+                  style: const TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 20,
                     color: Colors.purple,
@@ -50,7 +41,7 @@ class _TransactionListState extends State<TransactionList> {
                     // ),
                     child: Text(
                   tx.title,
-                  style: TextStyle(
+                  style: const TextStyle(
                       color: Colors.purple,
                       fontWeight: FontWeight.bold,
                       fontSize: 16),
@@ -61,7 +52,7 @@ class _TransactionListState extends State<TransactionList> {
                     // ),
                     child: Text(
                   DateFormat('yyyy-MM-dd').format(tx.date),
-                  style: TextStyle(
+                  style: const TextStyle(
                     color: Colors.grey,
                   ),
                 ))
